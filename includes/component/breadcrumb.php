@@ -3,17 +3,15 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1><?= $breadcrumb_title ?></h1>
+            <h1>Ultimas notícias</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-            <?php for($i = 0; $i < count($breadcrumb_path) - 1; $i++): ?>
-                <li class="breadcrumb-item">
-                    <a href="#"><?= $breadcrumb_path[$i] ?></a>
-                </li>
-            <?php endfor ?>
-              <li class="breadcrumb-item active">
-                <?= $breadcrumb_path[count($breadcrumb_path) - 1] ?>
+              <li class="breadcrumb-item">
+                <a href="index.php">Home</a>
+              </li>
+              <li class="breadcrumb-item">
+                <a href="second-page.php">Login</a>
               </li>
             </ol>
           </div>

@@ -1,17 +1,9 @@
 <!-- Bar chart -->
-<div class="card card-primary card-outline mx-auto md-auto">  
+<div class="card card-primary card-outline">  
     <div class="card-header">
-    <h3 class="card-title">
-          Visitas neste site
-    </h3>
-
-    <div class="card-tools">
-        <button type="button" class="btn btn-tool" data-card-widget="collapse">
-            <i class="fas fa-minus"></i>
-        </button>
-        <button type="button" class="btn btn-tool" data-card-widget="remove">
-            <i class="fas fa-times"></i>
-        </button>
+        <h3 class="card-title">
+            Visitas Mensais
+        </h3>
     </div>
     
     <div class="card-body">
@@ -19,3 +11,14 @@
     </div>
 
 </div>
+
+<style>
+    .card-header{
+        background-color: cadetblue;
+    }
+
+    .card-title{
+        color: whitesmoke;
+    }
+    
+</style>

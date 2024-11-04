@@ -11,7 +11,7 @@
           <img src="adminlte/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="login.php" class="d-block">Login</a>
+          <a href="pagina-login.php" class="d-block">Login</a>
         </div>
       </div>
 
@@ -33,7 +33,7 @@
             <a href="index.php" class="nav-link">Home</a>
           </li>
           <li class="nav-item">
-            <a href="second-page.php" class="nav-link">Login</a>
+            <a href="second-page.php" class="nav-link">News</a>
           </li>
         </ul>
       </nav>

@@ -13,24 +13,17 @@
 </head>
 <body class="hold-transition sidebar-mini">
 
-<div class="wrapper">
-
-    <?php include('libraries/aula02.php') ?>
-    <?php include('includes/component/navbar.php') ?>
-    <?php include('includes/component/sidebar.php') ?>
-
-    <!-- Content Wrapper. Contains page content -->
+  <?php include('includes/component/navbar.php') ?>
+  <?php include('includes/component/sidebar.php') ?>
+  
+  <div class="wrapper">
     <div class="content-wrapper">
-        <?php include('includes/component/breadcrumb.php') ?>
 
-        <section class="content"><?php include('includes/component/carrossel.php') ?></section>
+      <section class="content"> <?php include('includes/component/login.php') ?></section>
 
-        <section class="content"><?php include('includes/component/login.php') ?></section>
     </div>
-    
-    
-    
-</div>
+  </div>
+
 
 
 

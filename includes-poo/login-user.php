@@ -7,16 +7,12 @@
                 <!-- general form elements -->
                 <div class="card card-primary">
                 <div class="card-header">
-                    <h3 class="card-title">Cadastro de Usuário</h3>
+                    <h3 class="card-title">Login de Usuario</h3>
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form action="pages-cruds/cadastro.php" method="POST">
+                <form action="includes-poo/login-verify.php" method="POST">
                     <div class="card-body">
-                        <div class="form-group">
-                            <label for="nome">Nome</label>
-                            <input type="text" class="form-control" id="nome" name="usuario[nome]" placeholder="Digite seu nome">
-                        </div>
 
                         <div class="form-group">
                             <label for="email">E-mail</label>
@@ -26,11 +22,6 @@
                         <div class="form-group">
                             <label for="senha">Senha</label>
                             <input type="text" class="form-control" id="email" name="usuario[senha]" placeholder="Digite sua senha">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="tipo_assinatura">Tipo de Assinatura</label>
-                            <input type="text" class="form-control" id="tipo_assinatura" name="assinatura[tipo_assinatura]" placeholder="Tipo de Assinatura (Semanal ou Diaria)">
                         </div>
                         
                     </div>
@@ -60,7 +51,6 @@
     .card{
         margin-top: 10px;
     }
-
 
     
 </style>

@@ -42,6 +42,12 @@
       <li class="nav-item">
         <a class="nav-link" href="second-page.php">News</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="poo-login.php">Login</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="pagina-login.php">Cadastro</a>
+      </li>
     </ul>
   </nav>
   <!-- /.navbar -->

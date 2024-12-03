@@ -35,6 +35,12 @@
           <li class="nav-item">
             <a href="second-page.php" class="nav-link">News</a>
           </li>
+          <li class="nav-item">
+            <a href="pagina-login.php" class="nav-link">Cadastro</a>
+          </li>
+          <li class="nav-item">
+            <a href="poo-login.php" class="nav-link">Login</a>
+          </li>
         </ul>
       </nav>
         <!-- /.sidebar-menu -->

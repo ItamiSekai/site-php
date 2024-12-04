@@ -12,8 +12,24 @@ class Usuario {
     }
 
     // Metodos
-    public function verificaSenha($senha){
-        return password_verify($senha, $this->senha);
+    public function verificaLogin($email, $senha){
+        $senhaHash = '';
+        $id = '';
+
+        $conect= $this->db->prepare("SELECT usuario_id, senha FROM usuario WHERE email = ?");
+        $conect->bind_param("s", $email);
+        $conect->execute();
+        $conect->bind_result($id, $senhaHash);
+
+        // Caso consiga resultado
+        if($conect->fetch()){
+            if(password_verify($senha, $senhaHash)){
+                $conect->close();
+                return 1;
+            }
+        }
+
+        return 0;
     }
 
     public function insereUsuario() {

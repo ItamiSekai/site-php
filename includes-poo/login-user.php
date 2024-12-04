@@ -16,12 +16,12 @@
 
                         <div class="form-group">
                             <label for="email">E-mail</label>
-                            <input type="text" class="form-control" id="email" name="usuario[email]" placeholder="Digite seu e-mail">
+                            <input type="text" class="form-control" id="email" name="email" placeholder="Digite seu e-mail">
                         </div>
 
                         <div class="form-group">
                             <label for="senha">Senha</label>
-                            <input type="text" class="form-control" id="email" name="usuario[senha]" placeholder="Digite sua senha">
+                            <input type="text" class="form-control" id="email" name="senha" placeholder="Digite sua senha">
                         </div>
                         
                     </div>

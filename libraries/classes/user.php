@@ -4,6 +4,7 @@ class Usuario {
     private $nome;
     private $email;
     private $senha;
+    private $assinatura;
     private $db;
 
     // Construct 
@@ -15,17 +16,22 @@ class Usuario {
     public function verificaLogin($email, $senha){
         $senhaHash = '';
         $id = '';
+        $tipoAssinatura = '';
 
-        $conect= $this->db->prepare("SELECT usuario_id, senha FROM usuario WHERE email = ?");
+        $conect= $this->db->prepare("SELECT id, senha, tipo_assinatura FROM usuario 
+        LEFT JOIN assinatura ON usuario.id = assinatura.usuario_id
+        WHERE email = ?");
         $conect->bind_param("s", $email);
         $conect->execute();
-        $conect->bind_result($id, $senhaHash);
+        $conect->bind_result($id, $senhaHash, $tipoAssinatura);
 
         // Caso consiga resultado
         if($conect->fetch()){
             if(password_verify($senha, $senhaHash)){
-                $conect->close();
-                return 1;
+            $conect->close();
+            // Armazene o tipo de assinatura na sessão
+            $_SESSION['tipo_assinatura'] = $tipoAssinatura;
+            return 1;
             }
         }
 
@@ -40,8 +46,8 @@ class Usuario {
         $conect->close();
     }
 
-    public function consultaPorId($id) {
-        $conect = $this->db->prepare("SELECT id, nome, email, senha FROM usuario WHERE id = ?");
+    public function coletaDadosPorId($id) {
+        $conect = $this->db->prepare("SELECT id, nome, email FROM usuario WHERE id = ?");
         $conect->bind_param("i", $id);
         $conect->execute();
         $result = $conect->get_result();
@@ -50,7 +56,16 @@ class Usuario {
             $this->id = $row['id'];
             $this->nome = $row['nome'];
             $this->email = $row['email'];
-            $this->senha = $row['senha'];
+        }
+        
+
+        $conect = $this->db->prepare("SELECT tipo_assinatura FROM assinatura WHERE usuario_id = ?");
+        $conect->bind_param("i", $id);
+        $conect->execute();
+        $result = $conect->get_result();
+
+        if ($row = $result->fetch_assoc()) {
+            $this->assinatura = $row['tipo_assinatura'];
         }
         $conect->close();
     }
@@ -77,7 +92,7 @@ class Usuario {
         $senhaHash = '';
 
         // Prepara SQL
-        $conect= $this->db->prepare("SELECT usuario_id, senha FROM usuario WHERE email = ?");
+        $conect= $this->db->prepare("SELECT id, senha FROM usuario WHERE email = ?");
         $conect->bind_param("s", $email);
         $conect->execute();
         $conect->bind_result($id, $senhaHash);
@@ -96,6 +111,16 @@ class Usuario {
         return null;
     }
 
+    public function getName(){
+        return $this->nome;
+    }
+    public function getId(){
+        return $this->id;
+    }
+    public function getAssinatura(){
+        return $this->assinatura;
+    }
+    
 }
 
 ?>

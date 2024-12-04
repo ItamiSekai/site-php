@@ -1,3 +1,5 @@
+<?php include 'includes-poo/session.php' ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,11 +19,11 @@
 
     <?php include('libraries/aula02.php') ?>
     <?php include('includes/component/navbar.php') ?>
-    <?php include('includes/component/sidebar.php') ?>
+    <?php include 'includes-poo/poo-sidebar.php' ?>
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        <?php include('includes/component/breadcrumb.php') ?>
+        <?php include('includes-poo/poo-breadcrumb.php') ?>
 
         <section class="content"></section>
 

@@ -1,5 +1,5 @@
 <?php
-session_start(); // Inicia a sessão
+session_start(); 
 require_once '../libraries/classes/user.php';
 
 // Verifica se o formulário foi enviado
@@ -21,21 +21,34 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $usuario->setEmail($_POST['email']);
     $usuario->setSenha($_POST['senha']);
 
-    // Consulta ao banco para verificar as credenciais
-
+    
     if ($usuario->verificaLogin($_POST['email'], $_POST['senha'])) {
         // Login bem-sucedido
-        $usuario->setId($_SESSION['user_id']); // Armazena o ID na sessão
-        header("Location: ../poo-dashboard.php"); // Redireciona para a próxima página
-        exit();
-    }
-    else{
-        echo "Senha incorreta ou conta nao existe";
+        $id = $usuario->mostrarId($_POST['email'], $_POST['senha']);
+        
+        // Coletar os dados do usuário
+        $usuario->coletaDadosPorId($id);
+        
+        // Armazenar o objeto completo na sessão
+        $_SESSION['usuario'] = serialize($usuario);
+        $_SESSION['tipo_assinatura'] = $usuario->getAssinatura(); 
+
+        // Redirecionar para a página apropriada
+        if ($_SESSION['tipo_assinatura'] == 'Diaria') {
+            header("Location: ../pagina-noticias-diarias.php");
+        } elseif ($_SESSION['tipo_assinatura'] == 'Semanal') {
+            header("Location: ../pagina-noticias-semanais.php");
+        } else {
+            header("Location: ../index.php"); 
+        }
+        
+        exit(); 
+    } else {
+        echo "Senha incorreta ou conta não existe";
     }
 
     $conn->close();
-}
-else{
-    echo 'Erro ao enviar formulario';
+} else {
+    echo 'Erro ao enviar formulário';
 }
 ?>
